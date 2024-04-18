@@ -1,17 +1,15 @@
-function info(msg) {
-  console.log(msg);
-}
-
-function warn(warnMsg) {
-  console.error(warnMsg);
-}
-
-function error(errorMsg) {
-  console.error(errorMsg);
+function getLogger(moduleName) {
   return {
-    warn,
-    info,
+    info: (msg) => {
+      console.log(`${moduleName}: ${msg}`);
+    },
+    warn: (msg) => {
+      console.error(`${moduleName}: ${msg}`);
+    },
+    error: (msg) => {
+      console.log(`${moduleName}: ${msg}`);
+    },
   };
 }
 
-module.exports = error;
+module.exports = getLogger;
