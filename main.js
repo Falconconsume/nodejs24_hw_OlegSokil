@@ -1,3 +1,5 @@
-const logger = require("./utils/logger")("main");
+const logger = require('./utills/logger')("main");
 
-logger.info("the script is running!");
+logger.info("The script is running!");
+logger.warn("This is a warning");
+logger.error("This is an error");
