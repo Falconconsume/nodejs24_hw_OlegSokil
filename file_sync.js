@@ -19,7 +19,6 @@ const fileSync = {
 					logger.info(`File '${file.name}' synchronized successfully.`);
 				}
 			}
-
 			logger.info('File sync completed.');
 		} catch (err) {
 			logger.warn('Something went wrong:', err);
