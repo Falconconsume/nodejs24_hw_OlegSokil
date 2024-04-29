@@ -26,9 +26,7 @@ function getLogger(moduleName) {
 			}
 		},
 		error: (msg) => {
-			if (logLevel === 'info' || logLevel === 'warn' || logLevel === 'error') {
-				console.error(applyColor(moduleName, msg, colors.red));
-			}
+			console.error(applyColor(moduleName, msg, colors.red));
 		}
 	};
 }

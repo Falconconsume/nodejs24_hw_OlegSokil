@@ -127,6 +127,14 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
+
+source
+target
 .pnp.*
 
 .idea
+
+/source/*
+/target/*
+!/source/.gitkeep
+!/target/.gitkeep
