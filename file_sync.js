@@ -12,7 +12,7 @@ const fileSync = {
 				const targetFilePath = path.join(target, file.name);
 
 				if (file.isDirectory()) {
-					await fs.mkdir(targetFilePath, {recursive: true});
+					awfs.mkdir(targetFilePath, {recursive: true});
 					await fileSync.start(sourceFilePath, targetFilePath);
 				} else {
 					await fs.copyFile(sourceFilePath, targetFilePath);

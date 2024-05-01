@@ -128,11 +128,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 
-source
-target
+
 .pnp.*
 
 .idea
 
-/source
-/target
+source/*
+!source/.gitkeep
+target/*
+!target/.gitkeep
