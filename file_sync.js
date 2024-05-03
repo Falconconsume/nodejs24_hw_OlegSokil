@@ -12,16 +12,21 @@ const fileSync = {
 				const targetFilePath = path.join(target, file.name);
 
 				if (file.isDirectory()) {
-					awfs.mkdir(targetFilePath, {recursive: true});
+					await fs.mkdir(targetFilePath, {recursive: true});
 					await fileSync.start(sourceFilePath, targetFilePath);
 				} else {
-					await fs.copyFile(sourceFilePath, targetFilePath);
-					logger.info(`File '${file.name}' synchronized successfully.`);
+					try {
+						await fs.access(targetFilePath);
+						logger.warn(`File '${file.name}' already exists in target directory.`);
+						await fs.copyFile(sourceFilePath, targetFilePath, {encoding: 'utf-8', flag: 'a'})
+					} catch (error) {
+						logger.error(`File '${file.name}' something went wrong in this file!`);
+					}
 				}
 			}
 			logger.info('File sync completed.');
 		} catch (err) {
-			logger.warn('Something went wrong:', err);
+			logger.error('Something went wrong:', err.message);
 		}
 	}
 };
