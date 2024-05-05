@@ -133,6 +133,5 @@ dist
 
 .idea
 
-/source/.gitkeep
-/target/.gitkeep
-
+!source/*
+!target/*
