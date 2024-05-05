@@ -14,7 +14,7 @@ const fileSync = {
 
 				if (file.isDirectory()) {
 					await fs.mkdir(targetFilePath, {recursive: true})
-					await fileSync.start(sourceFilePath, targetFilePath, {encoding: 'utf-8', flag: 'a'});
+					await fileSync.start(sourceFilePath, targetFilePath);
 				} else {
 					try {
 						await fs.access(targetFilePath);
