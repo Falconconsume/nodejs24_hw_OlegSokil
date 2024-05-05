@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+const {colorsEnabled, logLevel} = require('./config/default');
 const logger = require('./utills/logger')("file_sync");
 
 const fileSync = {
@@ -12,15 +13,15 @@ const fileSync = {
 				const targetFilePath = path.join(target, file.name);
 
 				if (file.isDirectory()) {
-					await fs.mkdir(targetFilePath, {recursive: true});
-					await fileSync.start(sourceFilePath, targetFilePath);
+					await fs.mkdir(targetFilePath, {recursive: true})
+					await fileSync.start(sourceFilePath, targetFilePath, {encoding: 'utf-8', flag: 'a'});
 				} else {
 					try {
 						await fs.access(targetFilePath);
 						logger.warn(`File '${file.name}' already exists in target directory.`);
-						await fs.copyFile(sourceFilePath, targetFilePath, {encoding: 'utf-8', flag: 'a'})
 					} catch (error) {
-						logger.error(`File '${file.name}' something went wrong in this file!`);
+						await fs.copyFile(sourceFilePath, targetFilePath);
+						logger.info(`File '${file.name}' synchronized successfully.`);
 					}
 				}
 			}

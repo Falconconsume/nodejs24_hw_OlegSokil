@@ -1,6 +1,5 @@
 const colors = require("colors");
-const colorsEnabled = require('../config/default')
-const logLevel = require('../config/default')
+const {colorsEnabled, logLevel} = require('../config/default.js')
 
 if (colorsEnabled) {
 	colors.enable()
