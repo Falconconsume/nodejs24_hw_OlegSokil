@@ -18,9 +18,9 @@ const fileSync = {
 					try {
 						await fs.access(targetFilePath);
 						logger.warn(`File '${file.name}' already exists in target directory.`);
-						await fs.copyFile(sourceFilePath, targetFilePath, {encoding: 'utf-8', flag: 'a'})
 					} catch (error) {
-						logger.error(`File '${file.name}' something went wrong in this file!`);
+						await fs.copyFile(sourceFilePath, targetFilePath);
+						logger.info(`File '${file.name}' synchronized successfully.`);
 					}
 				}
 			}
