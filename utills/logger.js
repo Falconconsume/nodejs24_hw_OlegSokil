@@ -1,9 +1,9 @@
 const colors = require("colors");
-const config = require('config');
-require('dotenv').config();
+const {colorsEnabled, logLevel} = require('../config/default.js')
 
-const colorsEnabled = process.env.COLORS_ENABLED ? process.env.COLORS_ENABLED === '1' : config.get('COLORS_ENABLED') === '1';
-const logLevel = process.env.LOG_LEVEL || config.get('LOG_LEVEL');
+if (colorsEnabled) {
+	colors.enable()
+}
 
 const applyColor = (moduleName, message, colorFunc) => {
 	if (colorsEnabled) {
@@ -26,9 +26,7 @@ function getLogger(moduleName) {
 			}
 		},
 		error: (msg) => {
-			if (logLevel === 'info' || logLevel === 'warn' || logLevel === 'error') {
-				console.error(applyColor(moduleName, msg, colors.red));
-			}
+			console.error(applyColor(moduleName, msg, colors.red));
 		}
 	};
 }
