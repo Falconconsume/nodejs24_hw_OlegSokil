@@ -1,7 +1,7 @@
 const http = require("http");
 const colors = require("colors");
 const dotenv = require("dotenv");
-const logger = require("./utills/logger")("server");
+const logger = require("./utills/logger")("Server");
 dotenv.config();
 
 const server = http.createServer((req, res) => {
@@ -18,5 +18,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(process.env.PORT, () =>
-  console.log(`The server is running on ${process.env.PORT}`)
+  logger.info(`The server is running on ${process.env.PORT}`)
 );
