@@ -1,4 +1,3 @@
-const fileSync = require('./file_sync');
-
+const fileSync = require("./file_sync");
 
 fileSync.start();

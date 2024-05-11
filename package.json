@@ -5,13 +5,18 @@
   "main": "main.js",
   "scripts": {
     "start": " node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
     "config": "^3.3.11",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0-alpha.6"
   }
 }
