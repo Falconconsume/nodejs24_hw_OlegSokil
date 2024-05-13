@@ -1,5 +1,3 @@
-const fileSync = require('./file_sync');
-const getLogger = require('./utills/logger')("main")
+const fileSync = require("./file_sync");
 
 fileSync.start();
-
