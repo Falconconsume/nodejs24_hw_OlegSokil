@@ -1,7 +1,7 @@
 const http = require("http");
 const dotenv = require("dotenv");
 const logger = require("./utills/logger")("Server");
-const { port } = require("./config/default.js");
+const { port } = require("config");
 dotenv.config();
 
 const server = http.createServer((req, res) => {
