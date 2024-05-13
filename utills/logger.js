@@ -55,5 +55,3 @@ process.on("beforeExit", () => {
 });
 
 module.exports = logger;
-
-
