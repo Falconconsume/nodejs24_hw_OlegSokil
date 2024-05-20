@@ -7,16 +7,26 @@ const userSchema = object().shape({
     .email("You didn`t pass valid email"),
 });
 
-const idSchema = object().shape({
-  userId: number().integer().min(1),
-});
+const idSchema = number().integer().min(1);
 
-const userValidation = async (body) => {
-  await userSchema.validate(body);
+const userValidation = async (req, res, next) => {
+  try {
+    await userSchema.validate(req.body);
+    return next();
+  } catch (err) {
+    res.status(400).json({
+      error: err.message,
+    });
+  }
 };
 
-const idValidation = async (id) => {
-  await idSchema.validate(id);
+const idValidation = async (req, res, next) => {
+  try {
+    await idSchema.validate(req.params.userId);
+    next();
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 };
 
 module.exports = {
