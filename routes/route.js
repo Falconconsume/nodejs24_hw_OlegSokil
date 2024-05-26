@@ -19,6 +19,10 @@ route.delete("/:userId", idValidation, async (req, res) => {
   res.status(204).json({});
 });
 
+route.get('/', (req, res) => {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
+
 module.exports = {
   route,
 };

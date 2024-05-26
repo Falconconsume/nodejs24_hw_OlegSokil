@@ -1,0 +1,17 @@
+html
+  head
+    title UserList
+    link(href='style.css' rel='stylesheet' type='text/css')
+  body
+    h1 User list
+    table.mainUserTable
+      thead 
+        each userListHead in ['id', 'name', 'email', 'password']
+          th(class=userListHead.toLowerCase())= userListHead
+      tbody 
+        each userItem in locals.userList 
+          tr
+            td= userItem.id
+            td= userItem.name
+            td= userItem.email 
+            td= userItem.password

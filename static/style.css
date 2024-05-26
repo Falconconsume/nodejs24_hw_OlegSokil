@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  color: blue;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mainUserTable {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mainUserTable thead {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.mainUserTable th,
+.mainUserTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.mainUserTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.mainUserTable tbody tr:hover {
+  background-color: #e9e9e9;
+}
+
+.mainUserTable th {
+  text-transform: uppercase;
+}
+
+.mainUserTable td {
+  color: #333;
+}
